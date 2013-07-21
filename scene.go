@@ -11,4 +11,11 @@ type Scene struct {
 
 func (s *Scene) RayTrace(r Ray) Colour {
 
+	if r.depth >= Infinity {
+		return Colour{0,0,0}
+	}
+
+	for shape := range s.shapes {
+
+	}
 }

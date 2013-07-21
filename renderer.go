@@ -1,12 +1,13 @@
 package goray 
 
 type Ray struct {
-	orig Point;
-	dir Vec3;
+	orig Point
+	dir Vec3
+	depth int
 }
 
 type Hit struct {
-	distance float32
+	distance float64
 	pos Point
 	shape *Shapes
 }
