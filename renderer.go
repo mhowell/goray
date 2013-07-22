@@ -9,7 +9,7 @@ type Ray struct {
 type Hit struct {
 	distance float64
 	pos Point
-	shape *Shapes
+	shape Shapes
 }
 
 type Renderer struct {

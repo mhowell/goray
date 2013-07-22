@@ -11,11 +11,17 @@ type Scene struct {
 
 func (s *Scene) RayTrace(r Ray) Colour {
 
-	if r.depth >= Infinity {
+	if float64(r.depth) >= Infinity {
 		return Colour{0,0,0}
 	}
 
-	for shape := range s.shapes {
+	hit := Hit{Infinity, Point{0,0,0},nil}
+
+	for _, shape := range s.shapes {
+		h := shape.Intersect(r)
+		if h.distance < hit.distance {
+			hit = h
+		}
 
 	}
 }

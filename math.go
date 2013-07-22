@@ -64,9 +64,24 @@ func (p Point) Sub( a Point) Vec3 {
 	return Vec3{x, y, z}
 }
 
-func (p Point) Add( a Vec3 ) Point {
+func (p Point) AddVec3( a Vec3 ) Point {
 	x := p.x + a.x
 	y := p.y + a.y
 	z := p.z + a.z
 	return Point{x,y,z}
 }
+
+func (p Point) SubVec3( a Vec3) Point {
+	x := p.x - a.x
+	y := p.y - a.y
+	z := p.z - a.z
+	return Point{x, y, z}
+}
+
+func (p Point) Add( a Point ) Point {
+	x := p.x + a.x
+	y := p.y + a.y
+	z := p.z + a.z
+	return Point{x,y,z}
+}
+

@@ -1,8 +1,6 @@
 package goray
 
-import (
-	"math"
-)
+import "math"
 
 type Shapes interface {
 	Intersect(r Ray) Hit
@@ -13,8 +11,8 @@ type Sphere struct {
 	radius float64
 }
 
-func (s *Sphere) Intersect(r Ray) Hit {
-	dist := s.center.sub( r.orig )
+func (s Sphere) Intersect(r Ray) Hit {
+	dist := s.center.Sub( r.orig )
 	b := dist.Dot( r.dir )
 	d := b*b - dist.Dot(dist) + s.radius * s.radius
 	if d < 0.0 {
@@ -25,10 +23,11 @@ func (s *Sphere) Intersect(r Ray) Hit {
 	t2 := b + d
 
 	if t1 > 0.1 {
-		return Hit{t1, r.orig.Add(r.dir.scalarMultiply(t1).Sub(s.center)), s}
+		return Hit{t1, r.orig.Add(s.center.SubVec3(r.dir.scalarMultiply(t1))), Shapes(s)}
 	}
 
 	if t2 > 0.1 {
-		return Hit{t2, r.orig.Add(r.dir.scalarMultiply(t2).Sub(s.center)), s}
+		return Hit{t2, r.orig.Add(s.center.SubVec3(r.dir.scalarMultiply(t2))), Shapes(s)}
 	}
+	return Hit{0, Point{0, 0, 0}, nil}
 }
