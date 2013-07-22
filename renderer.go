@@ -17,7 +17,7 @@ type Renderer struct {
 	cam *Camera
 }
 
-func (renderer *Renderer) renderScene() {
+func (renderer *Renderer) renderScene() (image Image) {
 	for y := 0; y < renderer.cam.h; y++ {
 		for x := 0; x < renderer.cam.w; x++ {
 			ray := renderer.cam.rayForPixel(x, y)

@@ -16,7 +16,7 @@ func (s Sphere) Intersect(r Ray) Hit {
 	b := dist.Dot( r.dir )
 	d := b*b - dist.Dot(dist) + s.radius * s.radius
 	if d < 0.0 {
-		return Hit{0, Point{0, 0, 0}, nil}
+		return Hit{Infinity, Point{0, 0, 0}, nil}
 	}
 	d = math.Sqrt(d)
 	t1 := b - d
@@ -29,5 +29,5 @@ func (s Sphere) Intersect(r Ray) Hit {
 	if t2 > 0.1 {
 		return Hit{t2, r.orig.Add(s.center.SubVec3(r.dir.scalarMultiply(t2))), Shapes(s)}
 	}
-	return Hit{0, Point{0, 0, 0}, nil}
+	return Hit{Infinity, Point{0, 0, 0}, nil}
 }

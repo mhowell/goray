@@ -49,6 +49,13 @@ func (v Vec3) Dot( v2 Vec3) float64 {
 	return result
 }
 
+func (p Point) DotPoint( p2 Point) float64 {
+	result := p.x * p1.x
+	result += p.y * p1.y
+	result += p.z * p1.z
+	return result
+}
+
 func normalize( v Vec3) Vec3 {
 	return  v.scalarMultiply( 1.0 / math.Sqrt(v.Dot(v)))
 }
