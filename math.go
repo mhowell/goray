@@ -50,9 +50,9 @@ func (v Vec3) Dot( v2 Vec3) float64 {
 }
 
 func (p Point) DotPoint( p2 Point) float64 {
-	result := p.x * p1.x
-	result += p.y * p1.y
-	result += p.z * p1.z
+	result := p.x * p2.x
+	result += p.y * p2.y
+	result += p.z * p2.z
 	return result
 }
 

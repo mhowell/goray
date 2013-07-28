@@ -24,4 +24,5 @@ func (s *Scene) RayTrace(r Ray) Colour {
 		}
 
 	}
+	return Colour{0,0,0}
 }
