@@ -22,6 +22,8 @@ func (renderer *Renderer) renderScene() (image Image) {
 		for x := 0; x < renderer.cam.w; x++ {
 			ray := renderer.cam.rayForPixel(x, y)
 			colour := renderer.scene.RayTrace(ray)
+			image.setPixel(colour)
 		}
 	}
+	return image
 }
