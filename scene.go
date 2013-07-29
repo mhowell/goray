@@ -11,13 +11,13 @@ type Scene struct {
 	shapes []Shapes
 }
 
-func (s *Scene) RayTrace(r Ray) (color.RGBA) {
+func (s *Scene) RayTrace(r Ray) color.RGBA {
 
 	if float64(r.depth) >= Infinity {
-		return color.RGBA{0,0,0,0}
+		return color.RGBA{0, 0, 0, 0}
 	}
 
-	hit := Hit{Infinity, Point{0,0,0},nil}
+	hit := Hit{Infinity, Point{0, 0, 0}, nil}
 
 	for _, shape := range s.shapes {
 		h := shape.Intersect(r)
@@ -26,5 +26,5 @@ func (s *Scene) RayTrace(r Ray) (color.RGBA) {
 		}
 
 	}
-	return color.RGBA{255,0,0,0}
+	return color.RGBA{255, 0, 0, 0}
 }

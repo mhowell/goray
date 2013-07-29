@@ -12,9 +12,9 @@ type Sphere struct {
 }
 
 func (s Sphere) Intersect(r Ray) Hit {
-	dist := s.center.Sub( r.orig )
-	b := dist.Dot( r.dir )
-	d := b*b - dist.Dot(dist) + s.radius * s.radius
+	dist := s.center.Sub(r.orig)
+	b := dist.Dot(r.dir)
+	d := b*b - dist.Dot(dist) + s.radius*s.radius
 	if d < 0.0 {
 		return Hit{Infinity, Point{0, 0, 0}, nil}
 	}
