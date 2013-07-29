@@ -1,5 +1,7 @@
 package goray
 
+import "image/color"
+
 type Light struct {
 	origin Point
 }
@@ -9,10 +11,10 @@ type Scene struct {
 	shapes []Shapes
 }
 
-func (s *Scene) RayTrace(r Ray) Colour {
+func (s *Scene) RayTrace(r Ray) (color.RGBA) {
 
 	if float64(r.depth) >= Infinity {
-		return Colour{0,0,0}
+		return color.RGBA{0,0,0,0}
 	}
 
 	hit := Hit{Infinity, Point{0,0,0},nil}
@@ -24,5 +26,5 @@ func (s *Scene) RayTrace(r Ray) Colour {
 		}
 
 	}
-	return Colour{0,0,0}
+	return color.RGBA{255,0,0,0}
 }

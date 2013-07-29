@@ -1,11 +1,5 @@
 package goray 
 
-type Colour struct {
-	red float32
-	green float32
-	blue float32
-}
-
 type Camera struct {
 	eye Point
 	w int

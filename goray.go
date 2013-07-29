@@ -1,6 +1,10 @@
 package goray
 
-
+import (
+	"log"
+	"os"
+	"image/png"
+)
 
 func createScene() (Scene) {
 	
@@ -37,5 +41,17 @@ func main() {
 
 	renderer := Renderer{&scene, &camera}
 
-	renderer.renderScene()
+	img := renderer.renderScene()
+
+	file, err := os.Create("output.png")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	err = png.Encode(file, img)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 }
