@@ -27,7 +27,7 @@ func (s *Scene) RayTrace(r Ray) color.RGBA {
 
 	}
 	if hit.distance < Infinity {
-		return color.RGBA(255, 0, 255, 0)
+		return color.RGBA{255, 0, 255, 0}
 	}
 	return color.RGBA{0, 0, 0, 0}
 }
