@@ -45,7 +45,7 @@ func (renderer *Renderer) CreateScene() {
 
 }
 
-func (renderer *Renderer) CreateCamera(){
+func (renderer *Renderer) CreateCamera() {
 	renderer.cam = &Camera{Point{0, 0, -10}, 100, 100}
 }
 

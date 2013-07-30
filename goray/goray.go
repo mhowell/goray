@@ -1,22 +1,18 @@
 package main
 
 import (
+	"github.com/mhowell/goray"
 	"image/png"
 	"log"
 	"os"
-	"github.com/mhowell/goray"
 )
 
-
-
 func main() {
-
-
 
 	renderer := new(goray.Renderer)
 
 	renderer.CreateScene()
-	renderer.CreateCamera()	
+	renderer.CreateCamera()
 
 	img := renderer.RenderScene()
 
