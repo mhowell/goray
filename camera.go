@@ -7,11 +7,9 @@ type Camera struct {
 }
 
 func (c *Camera) rayForPixel(x int, y int) Ray {
-	dirX := float64(x) - float64(c.w)*float64(0.5)
-	dirY := float64(y) - float64(c.h)*float64(0.5)
-	dirZ := float64(c.w)
 
-	dir := normalize(Vec3{dirX, dirY, dirZ})
+	dir := Vec3{0, 0, 1}
+	eye := Point{float64(x), float64(y), -1000}
 
-	return Ray{c.eye, dir, 0}
+	return Ray{eye, dir, 0}
 }

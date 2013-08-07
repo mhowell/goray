@@ -2,6 +2,7 @@ package goray
 
 import (
 	"image"
+	"log"
 )
 
 type Ray struct {
@@ -46,7 +47,7 @@ func (renderer *Renderer) CreateScene() {
 }
 
 func (renderer *Renderer) CreateCamera() {
-	renderer.cam = &Camera{Point{0, 0, -10}, 100, 100}
+	renderer.cam = &Camera{Point{0, 0, -10}, 512, 512}
 }
 
 func (renderer *Renderer) RenderScene() *image.RGBA {
@@ -56,6 +57,7 @@ func (renderer *Renderer) RenderScene() *image.RGBA {
 		for x := 0; x < renderer.cam.w; x++ {
 			ray := renderer.cam.rayForPixel(x, y)
 			colour := renderer.scene.RayTrace(ray)
+			log.Print(colour)
 			img.Set(x, y, colour)
 		}
 	}

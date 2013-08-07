@@ -1,6 +1,9 @@
 package goray
 
-import "image/color"
+import (
+	"image/color"
+	"log"
+)
 
 type Light struct {
 	origin Point
@@ -23,6 +26,7 @@ func (s *Scene) RayTrace(r Ray) color.RGBA {
 		h := shape.Intersect(r)
 		if h.distance < hit.distance {
 			hit = h
+			log.Print(h)
 		}
 
 	}

@@ -1,6 +1,9 @@
 package goray
 
-import "math"
+import (
+	"math"
+	"log"
+)
 
 type Shapes interface {
 	Intersect(r Ray) Hit
@@ -21,6 +24,9 @@ func (s Sphere) Intersect(r Ray) Hit {
 	d = math.Sqrt(d)
 	t1 := b - d
 	t2 := b + d
+
+	log.Print(t1)
+	log.Print(t2)
 
 	if t1 > 0.1 {
 		return Hit{t1, r.orig.Add(s.center.SubVec3(r.dir.scalarMultiply(t1))), Shapes(s)}
